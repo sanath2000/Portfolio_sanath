@@ -14,13 +14,15 @@ body {
   color: #fff;
 }
 
+
 #header {
-  width: 100%;
+  width: 110%;
   height: 100vh;
   color: #fff;
-  background-size: cover;
+  
   background-position: center;
-  position: relative;
+  
+  
 }
 
 .container {
@@ -34,14 +36,7 @@ nav {
   flex-wrap: wrap;
 }
 
-.logo {
-  width: 100px;
-  animation: rotate 10s infinite linear;
-}
-@keyframes rotate {
-  from { transform: rotateY(0deg); }
-  to { transform: rotateY(360deg); }
-}
+
 nav ul li {
   display: inline-block;
   list-style: none;
@@ -53,7 +48,15 @@ nav ul li a {
   text-decoration: none;
   font-size: 18px;
   font-feature-settings: "abvm";
-  position: relative;
+  
+}
+.logo {
+  width: 120px;
+  animation: rotate 10s infinite linear;
+}
+@keyframes rotate {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(60deg); }
 }
 
 nav ul li a::after {
@@ -68,7 +71,7 @@ nav ul li a::after {
 }
 
 nav ul li a:hover::after {
-  width: 100%;
+  width: 120%;
 }
 
 .header-content {
@@ -79,6 +82,34 @@ nav ul li a:hover::after {
   /*flex-grow: 30px; /* Ensures the image appears on the right */
   /*margin-top: 7.5%; /* Optional: adjust to your preference */
 }
+.tech-icons {
+  margin-top: 10px;
+  display: -moz-grid-line;
+  justify-content: center;
+  gap: 30px;
+}
+
+.tech-icons i {
+  font-size: 40px;
+  color: #00ff99;
+  animation: bounce 2s infinite ease-in-out;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.tech-icons i:hover {
+  color: #00e5ff;
+  transform: scale(1.2);
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
 
 .header-text {
   flex: 1;
@@ -90,7 +121,7 @@ nav ul li a:hover::after {
   font-size: 30px;
   margin-top: -80px;
   color: #fff;
-  animation: fadeIn 2s ease-in-out;
+  animation: fadeIn 3s ease-in-out;
 }
 
 
@@ -148,6 +179,7 @@ nav ul li a:hover::after {
   width: 350px; /* Adjust width as needed */
   transition: transform 0.3s ease; /* Ensures image stays aligned */
   border-radius: 10px; /* Optional: adds rounded corners */
+  align-self: flex-end;
 }
 .header-image img:hover {
   transform: scale(1.1);
@@ -160,9 +192,19 @@ nav ul li a:hover::after {
     opacity: 1;
   }
 }
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: white; }
+}
 .header-text h1 span {
-  animation: fadeText 3s ease infinite;
   color: #e78ee1;
+  overflow: hidden;
+  animation: typing 3.5s steps(40, end), blink .75s step-end infinite;
 }
 nav ul li a:hover {
   color: #ff004f;
@@ -180,7 +222,9 @@ nav ul li a:hover {
     transform: translateY(0);
   }
 }
-
+a:hover {
+  text-shadow: 0 0 10px #00ff99;
+}
 /* Particle Background */
 #particles-js {
   position: absolute;
@@ -211,6 +255,30 @@ nav ul li a:hover {
   animation: zoomIn 2s ease forwards;
 
 }
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-col-1 img, .about-col-2 {
+  opacity: 0;
+  animation: fadeInUp 1s ease-in-out forwards;
+}
+
+.about-col-1 img {
+  animation-delay: 0.3s;
+}
+
+.about-col-2 {
+  animation-delay: 0.5s;
+}
+
 @keyframes zoomIn {
   from {
     transform: scale(0.8);
